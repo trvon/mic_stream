@@ -204,6 +204,7 @@ public class SwiftMicStreamPlugin: NSObject, FlutterStreamHandler, FlutterPlugin
         //print(audioSession.sampleRate)
         let data = Data(bytesNoCopy: audioBufferList.mBuffers.mData!, count: Int(audioBufferList.mBuffers.mDataByteSize), deallocator: .none)
         
-        self.eventSink!(FlutterStandardTypedData(bytes: data))
+        DispatchQueue.main.async { [weak self] in
+            self?.eventSink?(FlutterStandardTypedData(bytes: data))
     }
 }
