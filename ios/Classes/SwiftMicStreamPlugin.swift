@@ -206,5 +206,6 @@ public class SwiftMicStreamPlugin: NSObject, FlutterStreamHandler, FlutterPlugin
         
         DispatchQueue.main.async { [weak self] in
             self?.eventSink?(FlutterStandardTypedData(bytes: data))
+        }
     }
 }
