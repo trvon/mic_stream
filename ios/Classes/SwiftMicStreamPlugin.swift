@@ -157,7 +157,7 @@ public class SwiftMicStreamPlugin: NSObject, FlutterStreamHandler, FlutterPlugin
                     self.session.addOutput(audioOutput)
                 }
 
-                DispatchQueue.main.async {
+                DispatchQueue.global(qos: .userInitiated).async {
                     self.session.startRunning()
                 }
             } catch let e {
